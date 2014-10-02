@@ -1,5 +1,8 @@
 # coding: utf-8
 require 'rspec'
+require 'coveralls'
+
+Coveralls.wear!
 
 Dir["./support/**/*.rb"].each do |f|
   require f
