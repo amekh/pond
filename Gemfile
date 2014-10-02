@@ -48,7 +48,7 @@ end
 
 # test framework
 group :test do
-  gem "rspec"
-  gem "rspec-rails"
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
-
