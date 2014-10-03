@@ -47,7 +47,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # test framework
-group :test do
+group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
