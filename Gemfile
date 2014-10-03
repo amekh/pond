@@ -53,3 +53,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'coveralls', require: false
 end
+
+# login auth
+gem 'devise'
