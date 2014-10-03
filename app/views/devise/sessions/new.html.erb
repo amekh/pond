@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag "application" %>
+
+<div id="pond-enter">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h1 id="enter-page-title">PonD</h1>
+    <div><%= f.email_field :email, autofocus: true, :placeholder => 'ID', :class => 'text-field'%></div>
+    <div><%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', :class => 'text-field' %></div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me, {:checked => true} %></div>
+    <% end -%>
+
+    <!-- div><%= f.submit "Log in" %></div> -->
+  <% end %>
+
+</div>
