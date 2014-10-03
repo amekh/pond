@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  companion_id: 1
+  mission_type: 1
+  title: MyString
+  contents: MyString
+  nes_work_time: 1
+  unnes_work_time_min: 1
+  unnes_work_time_max: 1
+
+two:
+  companion_id: 1
+  mission_type: 1
+  title: MyString
+  contents: MyString
+  nes_work_time: 1
+  unnes_work_time_min: 1
+  unnes_work_time_max: 1
