@@ -11,11 +11,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002055605) do
+ActiveRecord::Schema.define(version: 20141003010710) do
+
+  create_table "companies", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "devisions", force: true do |t|
+    t.integer  "leader_user_id"
+    t.string   "name",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mission_types", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "missions", force: true do |t|
+    t.integer  "companion_id"
+    t.integer  "mission_type_id"
+    t.string   "title",                           null: false
+    t.string   "contents"
+    t.integer  "nes_work_time",       default: 0, null: false
+    t.integer  "unnes_work_time_min", default: 0, null: false
+    t.integer  "unnes_work_time_max", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "monthly_recodes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "samary",     default: 0, null: false
+    t.integer  "welfare",    default: 0, null: false
+    t.integer  "carfare",    default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sections", force: true do |t|
     t.string   "name"
     t.integer  "leader_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "unit_missions", force: true do |t|
+    t.integer  "mission_id"
+    t.integer  "user_id"
+    t.integer  "unit_cost",              default: 0, null: false
+    t.date     "start_date",                         null: false
+    t.integer  "period",                 default: 0, null: false
+    t.integer  "limit_over_cost_lower",  default: 0, null: false
+    t.integer  "limit_over_cost_higher", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.integer  "devision_id"
+    t.integer  "section_id"
+    t.string   "login_name",     null: false
+    t.string   "login_password", null: false
+    t.string   "name",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

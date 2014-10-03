@@ -5,7 +5,7 @@ development:
   database: pond_development
   pool: 5
   username: root
-  password: password
+  password: 7102531k
   host: localhost
 
 test:
@@ -14,8 +14,8 @@ test:
   reconnect: false
   database: pond_test
   pool: 5
-  username:
-  password:
+  username: root
+  password: 7102531k
   host: localhost
 
 production:
@@ -25,5 +25,5 @@ production:
   database: pond_production
   pool: 4
   username: root
-  password: password
+  password: 7102531k
   host: localhost
