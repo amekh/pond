@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pond</title>
+  <title>PonD</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <header id="page-header">
+    <h1 id="title">PonD</h1>
+  </header>
+
+  <div id="container">
+    <div id="sidemenu">
+      <div id="usermenu">
+	<%= image_tag(avatar_url(current_user.email), :class => "account") %>
+      </div>
+      <ul>
+	<li>週報</li>
+	<li>分析</li>
+	<li>メンバー</li>
+      </ul>
+    </div>
+    <div id="contents">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

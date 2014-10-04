@@ -12,6 +12,53 @@
  *= require_tree .
  */
 
-body,html {
+body, html {
     height:100%;
+}
+
+header#page-header {
+
+    background-color:#6096ce;
+    padding:10px;
+    height:40px;
+
+    h1#title {
+	float:left;
+	color:white;
+	font-size:2rem;
+    }    
+}
+
+div#container {
+
+    height:100%;
+    
+    div#sidemenu {
+
+	width:180px;
+	height:100%;
+	background:#f9f9f9;
+	color:#888;
+
+	div#usermenu {
+
+	    padding:20px 0 10px 10px;
+	    border-bottom:1px solid #e5e5e5;
+	    
+	    img.account {
+
+		border-radius:100px;
+		-webkit-border-radius:100px;
+		width:40px;
+		height:40px;
+		border:2px solid #AAAAAA;
+	    }
+	}
+
+	li {
+	    padding:10px 0 10px 10px;
+	    border-bottom:1px solid #e5e5e5;
+	}
+
+    }
 }
