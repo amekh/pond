@@ -1,0 +1,33 @@
+<%= form_for(@monthly_recode) do |f| %>
+  <% if @monthly_recode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@monthly_recode.errors.count, "error") %> prohibited this monthly_recode from being saved:</h2>
+
+      <ul>
+      <% @monthly_recode.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :samary %><br>
+    <%= f.number_field :samary %>
+  </div>
+  <div class="field">
+    <%= f.label :welfare %><br>
+    <%= f.number_field :welfare %>
+  </div>
+  <div class="field">
+    <%= f.label :carfare %><br>
+    <%= f.number_field :carfare %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

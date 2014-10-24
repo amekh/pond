@@ -1,4 +1,6 @@
 Pond::Application.routes.draw do
+  resources :monthly_recodes
+
   devise_for :users
 
   root:to => 'home#index'

@@ -1,0 +1,33 @@
+<h1>Listing monthly_recodes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Samary</th>
+      <th>Welfare</th>
+      <th>Carfare</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monthly_recodes.each do |monthly_recode| %>
+      <tr>
+        <td><%= monthly_recode.user_id %></td>
+        <td><%= monthly_recode.samary %></td>
+        <td><%= monthly_recode.welfare %></td>
+        <td><%= monthly_recode.carfare %></td>
+        <td><%= link_to 'Show', monthly_recode %></td>
+        <td><%= link_to 'Edit', edit_monthly_recode_path(monthly_recode) %></td>
+        <td><%= link_to 'Destroy', monthly_recode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monthly recode', new_monthly_recode_path %>
