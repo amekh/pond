@@ -1,4 +1,6 @@
 Pond::Application.routes.draw do
+  resources :missions
+
   resources :unit_missions
 
   resources :monthly_recodes

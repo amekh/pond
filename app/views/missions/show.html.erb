@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @mission.company_id %>
+</p>
+
+<p>
+  <strong>Mission type:</strong>
+  <%= @mission.mission_type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @mission.title %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @mission.contents %>
+</p>
+
+<p>
+  <strong>Nes work time:</strong>
+  <%= @mission.nes_work_time %>
+</p>
+
+<p>
+  <strong>Unnes work time min:</strong>
+  <%= @mission.unnes_work_time_min %>
+</p>
+
+<p>
+  <strong>Unnes work time max:</strong>
+  <%= @mission.unnes_work_time_max %>
+</p>
+
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Back', missions_path %>

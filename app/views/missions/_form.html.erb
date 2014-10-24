@@ -1,0 +1,45 @@
+<%= form_for(@mission) do |f| %>
+  <% if @mission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mission.errors.count, "error") %> prohibited this mission from being saved:</h2>
+
+      <ul>
+      <% @mission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_id %><br>
+    <%= f.number_field :company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :mission_type %><br>
+    <%= f.number_field :mission_type %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.number_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :contents %><br>
+    <%= f.number_field :contents %>
+  </div>
+  <div class="field">
+    <%= f.label :nes_work_time %><br>
+    <%= f.number_field :nes_work_time %>
+  </div>
+  <div class="field">
+    <%= f.label :unnes_work_time_min %><br>
+    <%= f.number_field :unnes_work_time_min %>
+  </div>
+  <div class="field">
+    <%= f.label :unnes_work_time_max %><br>
+    <%= f.number_field :unnes_work_time_max %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
