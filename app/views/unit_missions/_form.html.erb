@@ -1,0 +1,45 @@
+<%= form_for(@unit_mission) do |f| %>
+  <% if @unit_mission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unit_mission.errors.count, "error") %> prohibited this unit_mission from being saved:</h2>
+
+      <ul>
+      <% @unit_mission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mission_id %><br>
+    <%= f.number_field :mission_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_cost %><br>
+    <%= f.number_field :unit_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br>
+    <%= f.number_field :period %>
+  </div>
+  <div class="field">
+    <%= f.label :limit_over_cost_lower %><br>
+    <%= f.number_field :limit_over_cost_lower %>
+  </div>
+  <div class="field">
+    <%= f.label :limit_over_cost_higher %><br>
+    <%= f.number_field :limit_over_cost_higher %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

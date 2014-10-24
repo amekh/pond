@@ -1,0 +1,39 @@
+<h1>Listing unit_missions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mission</th>
+      <th>User</th>
+      <th>Unit cost</th>
+      <th>Start date</th>
+      <th>Period</th>
+      <th>Limit over cost lower</th>
+      <th>Limit over cost higher</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unit_missions.each do |unit_mission| %>
+      <tr>
+        <td><%= unit_mission.mission_id %></td>
+        <td><%= unit_mission.user_id %></td>
+        <td><%= unit_mission.unit_cost %></td>
+        <td><%= unit_mission.start_date %></td>
+        <td><%= unit_mission.period %></td>
+        <td><%= unit_mission.limit_over_cost_lower %></td>
+        <td><%= unit_mission.limit_over_cost_higher %></td>
+        <td><%= link_to 'Show', unit_mission %></td>
+        <td><%= link_to 'Edit', edit_unit_mission_path(unit_mission) %></td>
+        <td><%= link_to 'Destroy', unit_mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unit mission', new_unit_mission_path %>

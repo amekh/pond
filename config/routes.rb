@@ -1,4 +1,6 @@
 Pond::Application.routes.draw do
+  resources :unit_missions
+
   resources :monthly_recodes
 
   devise_for :users

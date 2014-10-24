@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mission:</strong>
+  <%= @unit_mission.mission_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @unit_mission.user_id %>
+</p>
+
+<p>
+  <strong>Unit cost:</strong>
+  <%= @unit_mission.unit_cost %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @unit_mission.start_date %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @unit_mission.period %>
+</p>
+
+<p>
+  <strong>Limit over cost lower:</strong>
+  <%= @unit_mission.limit_over_cost_lower %>
+</p>
+
+<p>
+  <strong>Limit over cost higher:</strong>
+  <%= @unit_mission.limit_over_cost_higher %>
+</p>
+
+<%= link_to 'Edit', edit_unit_mission_path(@unit_mission) %> |
+<%= link_to 'Back', unit_missions_path %>
