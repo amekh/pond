@@ -1,4 +1,6 @@
 Pond::Application.routes.draw do
+  resources :companies
+
   resources :missions
 
   resources :unit_missions
