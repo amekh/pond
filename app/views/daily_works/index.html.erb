@@ -1,0 +1,39 @@
+<h1>Listing daily_works</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Unit mission</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Type</th>
+      <th>Contents</th>
+      <th>Memo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daily_works.each do |daily_work| %>
+      <tr>
+        <td><%= daily_work.user_id %></td>
+        <td><%= daily_work.unit_mission %></td>
+        <td><%= daily_work.start_time %></td>
+        <td><%= daily_work.end_time %></td>
+        <td><%= daily_work.type %></td>
+        <td><%= daily_work.contents %></td>
+        <td><%= daily_work.memo %></td>
+        <td><%= link_to 'Show', daily_work %></td>
+        <td><%= link_to 'Edit', edit_daily_work_path(daily_work) %></td>
+        <td><%= link_to 'Destroy', daily_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daily work', new_daily_work_path %>

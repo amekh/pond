@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @daily_work.user_id %>
+</p>
+
+<p>
+  <strong>Unit mission:</strong>
+  <%= @daily_work.unit_mission %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @daily_work.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @daily_work.end_time %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @daily_work.type %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @daily_work.contents %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @daily_work.memo %>
+</p>
+
+<%= link_to 'Edit', edit_daily_work_path(@daily_work) %> |
+<%= link_to 'Back', daily_works_path %>
