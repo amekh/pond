@@ -6,7 +6,7 @@ FactoryGirl.define do
     unit_mission 1
     start_time "2014-10-26"
     end_time "2014-10-26"
-    type ""
+    type 1
     contents "MyText"
     memo "MyText"
   end

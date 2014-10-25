@@ -5,7 +5,7 @@ class CreateDailyWorks < ActiveRecord::Migration
       t.integer :unit_mission
       t.date :start_time
       t.date :end_time
-      t.int :type
+      t.integer :type
       t.text :contents
       t.text :memo
 

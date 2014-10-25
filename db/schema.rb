@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021143100) do
+ActiveRecord::Schema.define(version: 20141025151938) do
 
   create_table "companies", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "daily_works", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "unit_mission"
+    t.date     "start_time"
+    t.date     "end_time"
+    t.integer  "type"
+    t.text     "contents"
+    t.text     "memo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,19 +39,19 @@ ActiveRecord::Schema.define(version: 20141021143100) do
   end
 
   create_table "mission_types", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "missions", force: true do |t|
-    t.integer  "companion_id"
-    t.integer  "mission_type_id"
-    t.string   "title",                           null: false
-    t.string   "contents"
-    t.integer  "nes_work_time",       default: 0, null: false
-    t.integer  "unnes_work_time_min", default: 0, null: false
-    t.integer  "unnes_work_time_max", default: 0, null: false
+    t.integer  "company_id"
+    t.integer  "mission_type"
+    t.integer  "title"
+    t.integer  "contents"
+    t.integer  "nes_work_time"
+    t.integer  "unnes_work_time_min"
+    t.integer  "unnes_work_time_max"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,11 +75,11 @@ ActiveRecord::Schema.define(version: 20141021143100) do
   create_table "unit_missions", force: true do |t|
     t.integer  "mission_id"
     t.integer  "user_id"
-    t.integer  "unit_cost",              default: 0, null: false
-    t.date     "start_date",                         null: false
-    t.integer  "period",                 default: 0, null: false
-    t.integer  "limit_over_cost_lower",  default: 0, null: false
-    t.integer  "limit_over_cost_higher", default: 0, null: false
+    t.integer  "unit_cost"
+    t.date     "start_date"
+    t.integer  "period"
+    t.integer  "limit_over_cost_lower"
+    t.integer  "limit_over_cost_higher"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,7 +3,7 @@ class UnitMission < ActiveRecord::Base
                 :start_date, :period, :limit_over_cost_lower, :limit_over_cost_higher
   
   belongs_to :mission
-
+  has_many :daily_work
   
   
 end

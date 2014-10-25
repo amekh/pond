@@ -32,3 +32,18 @@ OVER_LATE_WORK_RATE = 0.25
 
 # 休日出勤の割合
 HOLIDAY_WORK_RATE = 1.35
+
+# 作業種別
+module WorkType
+  # 出勤
+  ATTENDANCE = 1
+  # 有給
+  PAID_VACATION = 2
+  # 夏期休暇
+  SUMMER_VACATION = 3
+  # 休暇
+  DAY_OFF = 4
+  # 代休
+  STEAD_DAY_OFF = 5
+  
+end
