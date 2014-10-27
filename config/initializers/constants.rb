@@ -34,7 +34,7 @@ OVER_LATE_WORK_RATE = 0.25
 HOLIDAY_WORK_RATE = 1.35
 
 # 作業種別
-module WorkType
+module WorkStatus
   # 出勤
   ATTENDANCE = 1
   # 有給

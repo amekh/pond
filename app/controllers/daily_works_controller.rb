@@ -1,5 +1,8 @@
+# coding: utf-8
 class DailyWorksController < ApplicationController
   before_action :set_daily_work, only: [:show, :edit, :update, :destroy]
+
+  attr_accessor :monthly_work
 
   # GET /daily_works
   # GET /daily_works.json
@@ -69,6 +72,19 @@ class DailyWorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def daily_work_params
-      params.require(:daily_work).permit(:user_id, :unit_mission, :start_time, :end_time, :type, :contents, :memo)
+      params.require(:daily_work).permit(:user_id, :unit_mission_id, :start_time,
+                                         :end_time, :status, :contents, :memo)
+    end
+
+    # 月間の作業合計時間
+    # @param [Time] date 集計したい月の日付
+    # @return [double] 月間作業時間(h)
+    def set_monthly_work ( date )
+
+      from = date.at_beginning_of_month
+      to = date.at_end_of_month
+
+      @monthly_work = DailyWork.where(:target_date => from..to)
+
     end
 end
