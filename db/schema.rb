@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025151938) do
+ActiveRecord::Schema.define(version: 20141101020716) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20141025151938) do
     t.integer  "user_id"
     t.integer  "unit_mission_id"
     t.date     "target_date"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.string   "start_time"
+    t.string   "end_time"
     t.integer  "rest_time"
     t.integer  "status"
     t.text     "contents"
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20141025151938) do
 
   create_table "missions", force: true do |t|
     t.integer  "company_id"
-    t.integer  "mission_type"
-    t.integer  "title"
-    t.integer  "contents"
+    t.integer  "mission_type_id"
+    t.string   "title"
+    t.text     "contents"
     t.integer  "nes_work_time"
     t.integer  "unnes_work_time_min"
     t.integer  "unnes_work_time_max"

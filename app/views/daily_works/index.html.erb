@@ -20,10 +20,10 @@
     <% @daily_works.each do |daily_work| %>
       <tr>
         <td><%= daily_work.user_id %></td>
-        <td><%= daily_work.unit_mission %></td>
+        <td><%= daily_work.unit_mission_id %></td>
         <td><%= daily_work.start_time %></td>
         <td><%= daily_work.end_time %></td>
-        <td><%= daily_work.type %></td>
+        <td><%= daily_work.status %></td>
         <td><%= daily_work.contents %></td>
         <td><%= daily_work.memo %></td>
         <td><%= link_to 'Show', daily_work %></td>

@@ -32,6 +32,7 @@ header#page-header {
 div#container {
 
     height:100%;
+    overflow:auto;
     
     div#sidemenu {
 
@@ -39,6 +40,7 @@ div#container {
 	height:100%;
 	background:#f9f9f9;
 	color:#888;
+	float:left;
 
 	div#usermenu {
 
@@ -60,5 +62,10 @@ div#container {
 	    border-bottom:1px solid #e5e5e5;
 	}
 
+    }
+
+    div#contents {
+
+	float:left;
     }
 }
