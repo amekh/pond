@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Samary</th>
+      <th>Month</th>
+      <th>Salary</th>
       <th>Welfare</th>
       <th>Carfare</th>
       <th></th>
@@ -17,7 +18,8 @@
     <% @monthly_recodes.each do |monthly_recode| %>
       <tr>
         <td><%= monthly_recode.user_id %></td>
-        <td><%= monthly_recode.samary %></td>
+	<td><%= monthly_recode.month %></td>
+        <td><%= monthly_recode.salary %></td>
         <td><%= monthly_recode.welfare %></td>
         <td><%= monthly_recode.carfare %></td>
         <td><%= link_to 'Show', monthly_recode %></td>

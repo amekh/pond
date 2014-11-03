@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101020716) do
+ActiveRecord::Schema.define(version: 20141103110909) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20141101020716) do
     t.integer  "carfare",    default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "month"
   end
 
   create_table "sections", force: true do |t|

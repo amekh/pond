@@ -1,6 +1,6 @@
 # coding: utf-8
 class MonthlyRecode < ActiveRecord::Base
-  attr_accessor :salary, :welfare
+
   belongs_to :user
 
   # 雑給+福利を計算して取得する

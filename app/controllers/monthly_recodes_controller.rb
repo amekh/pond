@@ -1,6 +1,6 @@
 # coding: utf-8
 class MonthlyRecodesController < ApplicationController
-  before_action :set_monthly_recode, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_monthly_recode, only: [:show, :edit, :update, :destroy]
 
   # GET /monthly_recodes.json
   def index
@@ -66,12 +66,11 @@ class MonthlyRecodesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_monthly_recode
     @monthly_recode = MonthlyRecode.find(params[:id])
-    @unit_mission = UnitMission.find(params[:id]);
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def monthly_recode_params
-    params.require(:monthly_recode).permit(:user_id, :salary, :welfare, :carfare)
+    params.require(:monthly_recode).permit(:user_id, :salary, :welfare, :carfare, :month)
   end  
 
 end
