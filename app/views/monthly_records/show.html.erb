@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @monthly_record.user_id %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @monthly_record.month %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @monthly_record.salary %>
+</p>
+
+<p>
+  <strong>Welfare:</strong>
+  <%= @monthly_record.welfare %>
+</p>
+
+<p>
+  <strong>Carfare:</strong>
+  <%= @monthly_record.carfare %>
+</p>
+
+<%= link_to 'Edit', edit_monthly_record_path(@monthly_record) %> |
+<%= link_to 'Back', monthly_records_path %>

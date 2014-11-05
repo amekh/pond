@@ -1,0 +1,68 @@
+<h1>Listing monthly_records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Month</th>
+      <th>Salary</th>
+      <th>Welfare</th>
+      <th>Carfare</th>
+      <th>Unit Mission Id</th>
+      <th>Target date</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Rest time</th>
+      <th>Status</th>
+      <th>Contents</th>
+      <th>Memo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monthly_records.each do |monthly_record| %>
+      <tr>
+        <td><%= monthly_record.user_id %></td>
+	<td><%= monthly_record.month %></td>
+        <td><%= monthly_record.salary %></td>
+        <td><%= monthly_record.welfare %></td>
+        <td><%= monthly_record.carfare %></td>
+	<td><%= monthly_record.unit_mission_id %></td>
+	<td><%= monthly_record.target_date %></td>
+	<td><%= monthly_record.start_time %></td>
+	<td><%= monthly_record.end_time %></td>
+	<td><%= monthly_record.rest_time %></td>
+	<td><%= monthly_record.status %></td>
+	<td><%= monthly_record.contents %></td>
+	<td><%= monthly_record.memo %></td>
+        <td><%= link_to 'Show', monthly_record %></td>
+        <td><%= link_to 'Edit', edit_monthly_record_path(monthly_record) %></td>
+        <td><%= link_to 'Destroy', monthly_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+      <p><%= monthly_record.work_time %> : <%= monthly_record.over_time %> > <%= monthly_record.late_time %></p>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monthly record', new_monthly_record_path %>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+
+th {
+  background-color:#ccc;
+  padding:5px;
+}
+
+td {
+  padding:5px;
+}
+</style>

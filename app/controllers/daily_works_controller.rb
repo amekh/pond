@@ -2,8 +2,6 @@
 class DailyWorksController < ApplicationController
   before_action :set_daily_work, only: [:show, :edit, :update, :destroy]
 
-  attr_accessor :monthly_work
-
   # GET /daily_works
   # GET /daily_works.json
   def index
@@ -72,8 +70,8 @@ class DailyWorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def daily_work_params
-      params.require(:daily_work).permit(:user_id, :unit_mission_id, :start_time,
-                                         :end_time, :status, :contents, :memo)
+      params.require(:daily_work).permit(:user_id, :monthly_record_id, :unit_mission_id, :start_time,
+                                         :end_time, :status, :contents, :memo, :target_date, :rest_time)
     end
 
     # 月間の作業合計時間

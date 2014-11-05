@@ -9,7 +9,7 @@ Pond::Application.routes.draw do
 
   resources :unit_missions
 
-  resources :monthly_recodes
+  resources :monthly_records
 
   devise_for :users
 

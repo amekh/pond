@@ -5,8 +5,11 @@
     <tr>
       <th>User</th>
       <th>Unit mission</th>
+      <th>Monthly record id</th>
+      <th>Target Date</th>
       <th>Start time</th>
       <th>End time</th>
+      <th>Rest time</th>
       <th>Type</th>
       <th>Contents</th>
       <th>Memo</th>
@@ -21,8 +24,11 @@
       <tr>
         <td><%= daily_work.user_id %></td>
         <td><%= daily_work.unit_mission_id %></td>
+	<td><%= daily_work.monthly_record_id %></td>
+	<td><%= daily_work.target_date %></td>
         <td><%= daily_work.start_time %></td>
         <td><%= daily_work.end_time %></td>
+	<td><%= daily_work.rest_time %></td>
         <td><%= daily_work.status %></td>
         <td><%= daily_work.contents %></td>
         <td><%= daily_work.memo %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103110909) do
+ActiveRecord::Schema.define(version: 20141105101348) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -23,14 +23,15 @@ ActiveRecord::Schema.define(version: 20141103110909) do
     t.integer  "user_id"
     t.integer  "unit_mission_id"
     t.date     "target_date"
-    t.string   "start_time"
-    t.string   "end_time"
-    t.integer  "rest_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.float    "rest_time"
     t.integer  "status"
     t.text     "contents"
     t.text     "memo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "monthly_record_id"
   end
 
   create_table "devisions", force: true do |t|
@@ -58,14 +59,14 @@ ActiveRecord::Schema.define(version: 20141103110909) do
     t.datetime "updated_at"
   end
 
-  create_table "monthly_recodes", force: true do |t|
+  create_table "monthly_records", force: true do |t|
     t.integer  "user_id"
     t.integer  "salary",     default: 0, null: false
     t.integer  "welfare",    default: 0, null: false
     t.integer  "carfare",    default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "month"
+    t.date     "month"
   end
 
   create_table "sections", force: true do |t|
