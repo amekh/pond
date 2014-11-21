@@ -77,6 +77,8 @@ class Domain::MonthlyRecordDomain
 
     @over_time_pay = calc_over_time_pay(@sum_over_time, @basis_amount)
     @late_time_pay = calc_late_time_pay(@sum_late_time, @basis_amount)
+
+    #TODO 計算する
     @holiday_work_time_pay = 0
     @total_over_time_pay = @over_time_pay + @late_time_pay + @holiday_work_time_pay
 
@@ -108,17 +110,17 @@ class Domain::MonthlyRecordDomain
       trans_expenses: @carfare,
       outlay: @outlay,
       my_outlay: my_outlay,
-      basic_rate: 0,
-      total_over_work_time: 0,
-      total_late_work_time: 0,
-      total_holiday_work_time: 0,
-      over_work_hour_price: 0,
-      late_work_hour_price: 0,
+      basic_rate: @basis_amount,
+      total_over_work_time: @sum_over_time,
+      total_late_work_time: @sum_late_time,
+      total_holiday_work_time: @sum_holiday_work_time,
+      over_work_hour_price: basis_amount * OVER_WORK_RATE,
+      late_work_hour_price: basis_amount * LATE_WORK_RATE,
       holiday_work_hour_price: 0,
-      total_over_work_price: 0,
-      total_late_work_price: 0,
-      total_holiday_work_price: 0,
-      total_all_over_work_price: 0,
+      total_over_work_price: @over_time_pay,
+      total_late_work_price: @late_time_pay,
+      total_holiday_work_price: @holiday_work_time_pay,
+      total_all_over_work_price: @total_over_time_pay,
 
       mission: @mission,
     }
