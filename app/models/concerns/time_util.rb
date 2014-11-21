@@ -1,4 +1,5 @@
 # coding: utf-8
+
 module TimeUtil
 
   # 文字列時間をTime型に変換する

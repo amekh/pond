@@ -1,9 +1,9 @@
 # coding: utf-8
-module AttendanceCalc
+module AttendanceCalcService
 
   include TimeUtil
   
-  # 深夜残業時間を抽出する
+  # 残業時間を抽出する
   # @param [String] start_time 開始時間
   # @param [String] end_time 終了時間
   # @return [float] 深夜残業時間
@@ -19,7 +19,7 @@ module AttendanceCalc
   # @param [String] end_time 終了時間
   # @return [float] 作業時間
   def calc_work_time (start_time, end_time, rest_time)
-    ( to_time(end_time) - to_time(start_time) ) / ( 60 * 60 ) - rest_time
+    ( end_time - start_time ) / ( 60 * 60 ) - rest_time
   end
 
   # 深夜作業時間を計算する
@@ -33,13 +33,15 @@ module AttendanceCalc
     late_over_work_end_time = to_time(target_date.strftime("%Y/%m/%d") + " " + "00:00") + END_LATE_WORK_TIME.hours
 
     # 深夜時間帯開始後に退勤した場合、深夜残業をつける
-    if( to_time(end_time) > late_over_work_start_time )
+    if( end_time > late_over_work_start_time )
 
-      late_over_work_start_time = to_time(start_time) > late_over_work_start_time ?
-                                    to_time(start_time) : late_over_work_start_time
+      late_over_work_start_time = start_time > late_over_work_start_time ?
+                                    start_time : late_over_work_start_time
 
-      late_over_work_end_time = to_time(end_time) < late_over_work_end_time ?
-                                  to_time(end_time) : late_over_work_end_time
+      late_over_work_end_time = end_time < late_over_work_end_time ?
+                                  end_time : late_over_work_end_time
+
+      
       
       return ( late_over_work_end_time - late_over_work_start_time ) / ( 60 * 60 )
     end

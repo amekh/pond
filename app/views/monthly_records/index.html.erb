@@ -1,5 +1,40 @@
 <h1>Listing monthly_records</h1>
 
+
+<table>
+  <thead>
+    <tr>
+      <th>作業時間</th>
+      <th>残業時間</th>
+      <th>深夜残業時間</th>
+      <th>合計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @monthly_record.records.each do |monthly_record| %>
+    <tr>
+      <td><%= monthly_record.work_time %></td>
+      <td><%= monthly_record.over_time %></td>
+      <td><%= monthly_record.late_time %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>G:<%= @monthly_record.sum_work_time %></td>
+      <td>G:<%= @monthly_record.sum_over_time %></td>
+      <td>G:<%= @monthly_record.sum_late_time %></td>
+    </tr>
+    <tr>
+      <td>M:/</td>
+      <td>M:<%= @monthly_record.over_time_pay %></td>
+      <td>M:<%= @monthly_record.late_time_pay %></td>
+      <td>M:<%= @monthly_record.total_over_time_pay %></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br />
+
 <table>
   <thead>
     <tr>
@@ -23,7 +58,7 @@
   </thead>
 
   <tbody>
-    <% @monthly_records.each do |monthly_record| %>
+    <% @monthly_record.records.each do |monthly_record| %>
       <tr>
         <td><%= monthly_record.user_id %></td>
 	<td><%= monthly_record.month %></td>
@@ -42,8 +77,6 @@
         <td><%= link_to 'Edit', edit_monthly_record_path(monthly_record) %></td>
         <td><%= link_to 'Destroy', monthly_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-
-      <p><%= monthly_record.work_time %> : <%= monthly_record.over_time %> > <%= monthly_record.late_time %></p>
     <% end %>
   </tbody>
 </table>

@@ -1,23 +1,15 @@
+# coding: utf-8
 
 class MonthlyRecordsController < ApplicationController
   before_action :set_monthly_record, only: [:show, :edit, :update, :destroy]
 
-  include AttendanceCalc
-
   # GET /monthly_records.json
   def index
-    @monthly_records = MonthlyRecord.joins(:daily_work).select("*");
 
-    @monthly_records.each do |monthly_record|
-      monthly_record.work_time = calc_work_time(monthly_record.target_date.strftime("%Y/%m/%d") + " " + "10:00",
-                                                monthly_record.target_date.strftime("%Y/%m/%d") + " " +  "23:00", 1)
-      monthly_record.over_time = extra_over_work_time(monthly_record.target_date.strftime("%Y/%m/%d") + " " + "10:00",
-                                                      monthly_record.target_date.strftime("%Y/%m/%d") + " " +  "23:00", 1)
-      monthly_record.late_time = extra_late_over_work_time(monthly_record.target_date,
-                                                           monthly_record.target_date.strftime("%Y/%m/%d") + " " + "10:00",
-                                                           monthly_record.target_date.strftime("%Y/%m/%d") + " " +  "19:00")
-    end
-    
+    @monthly_record = Domain::MonthlyRecordDomain.new()
+    @monthly_record.find_all
+
+    render :json => @monthly_record.json_format
   end
 
   # GET /monthly_records/1
@@ -84,6 +76,6 @@ class MonthlyRecordsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def monthly_record_params
     params.require(:monthly_record).permit(:user_id, :salary, :welfare, :carfare, :month, :late_time)
-  end  
+  end
 
 end
