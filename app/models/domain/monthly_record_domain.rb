@@ -44,7 +44,9 @@ class Domain::MonthlyRecordDomain
 
     @basis_amount = calc_basis_amount(baseinfo.salary);
     @salary = baseinfo.salary
-    @welfare = baseinfo.welfare
+    @allowance = baseinfo.allowance
+    @outlay = baseinfo.outlay
+    @carfare = baseinfo.carfare
     
     @results.each do |record|
 
@@ -84,17 +86,28 @@ class Domain::MonthlyRecordDomain
 
   # jsonに整形する
   def json_format
+
+    total_cost = @salary + @outlay + @carfare +
+                 calc_welfare(@allowance, @salary) + @total_over_time_pay
+
+    my_outlay = calc_unit_outlay(@salary, @allowance)
+
+    gross_profit = @profit - total_cost
+    operation_income = gross_profit - my_outlay
+    
+    
     {
       profit: @profit,
-      total_cost: 0,
-      rate_of_gross_profit: 0,
-      rate_operation_income: 0,
+      total_cost: total_cost,
+      gross_profit: gross_profit,
+      operation_income: operation_income,
+      rate_operation_income: ((operation_income / @profit)*100).round(1),
       salary: @salary,
-      allowance: 0,
-      welfare: @welfare,
-      trans_expenses: 0,
-      outlay: 0,
-      my_outlay: 0,
+      allowance: @allowance,
+      welfare: calc_welfare(@allowance, @salary),
+      trans_expenses: @carfare,
+      outlay: @outlay,
+      my_outlay: my_outlay,
       basic_rate: 0,
       total_over_work_time: 0,
       total_late_work_time: 0,
@@ -136,9 +149,9 @@ class Domain::MonthlyRecordDomain
   # @param [int] welfare 経費
   # @param [int] salary 給与
   # @return [int] 雑給+福利
-  def calc_miscellany_salary (welfare, salary)
+  def calc_welfare (allowance, salary)
       
-    ( welfare + salary ) * MISCELLANY_SALARY_RATE
+    ( allowance + salary ) * MISCELLANY_SALARY_RATE
   end
 
   # 算定基礎額を計算して取得する
@@ -149,10 +162,10 @@ class Domain::MonthlyRecordDomain
   end
 
   # 個人負担経費を計算して取得する
-  # @param [int] welfare 経費
+  # @param [int] allowance 手当
   # @param [int] salary 給与
   # @return [int] 個人負担経費
-  def calc_unit_outlay (welfare, salary)
-    ( welfare + salary ) * BURDEN_UNIT_OUTLAY_RATE
+  def calc_unit_outlay (salary, allowance)
+    ( salary + allowance ) * BURDEN_UNIT_OUTLAY_RATE
   end  
 end
