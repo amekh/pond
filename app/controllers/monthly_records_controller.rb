@@ -75,7 +75,7 @@ class MonthlyRecordsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def monthly_record_params
-    params.require(:monthly_record).permit(:user_id, :salary, :welfare, :carfare, :month, :late_time)
+    params.require(:monthly_record).permit(:user_id, :salary, :outlay, :allowance, :carfare, :month, :late_time)
   end
 
 end
