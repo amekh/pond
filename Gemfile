@@ -60,3 +60,6 @@ gem 'devise'
 
 # 日本の祝日を扱う
 gem 'holiday_jp'
+
+# RESTFullなAPI開発をサポート
+gem 'garage', github: 'cookpad/garage'

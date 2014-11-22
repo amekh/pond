@@ -1,4 +1,5 @@
 Pond::Application.routes.draw do
+  
   resources :daily_works
 
   resources :mission_types
@@ -9,11 +10,18 @@ Pond::Application.routes.draw do
 
   resources :unit_missions
 
-  resources :monthly_records
+#  resources :monthly_records
 
   devise_for :users
 
   root:to => 'home#index'
+
+
+  use_doorkeeper
+
+  scope :v1 do
+    resources :monthly_records, only: %i(index show update)
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,10 @@
 # coding: utf-8
 
 class MonthlyRecordsController < ApplicationController
+
+  include Garage::RestfulActions
+  include Garage::ControllerHelper
+  
   before_action :set_monthly_record, only: [:show, :edit, :update, :destroy]
 
   # GET /monthly_records.json
@@ -64,6 +68,15 @@ class MonthlyRecordsController < ApplicationController
       format.html { redirect_to monthly_records_url }
       format.json { head :no_content }
     end
+  end
+
+  def require_resources
+    @resources = MonthlyRecord.all
+  end
+
+    # Garage用のフィルターメソッド
+  def current_resource_owner
+    @current_resource_owner ||= User.find(resource_owner_id) if resource_owner_id
   end
 
   private
