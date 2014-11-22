@@ -1,3 +1,4 @@
+# coding: utf-8
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -56,3 +57,6 @@ end
 
 # login auth
 gem 'devise'
+
+# 日本の祝日を扱う
+gem 'holiday_jp'

@@ -54,6 +54,10 @@ class Domain::MonthlyRecordDomain
       record.over_time = extra_over_work_time(record.start_time, record.end_time, 1)
       record.late_time = extra_late_over_work_time(record.target_date, record.start_time, record.end_time)
       record.holiday_work_time = 0
+
+      if HolidayJp.holiday?(record.target_date)
+        record.holiday_work_time = record.work_time
+      end
       
       @sum_work_time += record.work_time
       @sum_over_time += record.over_time
@@ -68,7 +72,8 @@ class Domain::MonthlyRecordDomain
                       work_time: record.work_time,
                       over_work_time: record.over_time,
                       over_work_price: calc_over_time_pay(record.over_time, @basis_amount) +
-                      calc_late_time_pay(record.late_time, @basis_amount) 
+                      calc_late_time_pay(record.late_time, @basis_amount) +
+                      calc_holiday_work_time_pay(record.holiday_work_time, @basis_amount)
                     });
 
       @total_cost += record.unit_cost
@@ -107,7 +112,7 @@ class Domain::MonthlyRecordDomain
       salary: @salary,
       allowance: @allowance,
       welfare: calc_welfare(@allowance, @salary),
-      trans_expenses: @carfare,
+      carfare: @carfare,
       outlay: @outlay,
       my_outlay: my_outlay,
       basic_rate: @basis_amount,
@@ -116,7 +121,7 @@ class Domain::MonthlyRecordDomain
       total_holiday_work_time: @sum_holiday_work_time,
       over_work_hour_price: basis_amount * OVER_WORK_RATE,
       late_work_hour_price: basis_amount * LATE_WORK_RATE,
-      holiday_work_hour_price: 0,
+      holiday_work_hour_price: @holiday_work_time_pay,
       total_over_work_price: @over_time_pay,
       total_late_work_price: @late_time_pay,
       total_holiday_work_price: @holiday_work_time_pay,
@@ -145,6 +150,13 @@ class Domain::MonthlyRecordDomain
   # @return 残業代
   def calc_late_time_pay(sum_late_time, basis_amount)
     (sum_late_time * (basis_amount * LATE_WORK_RATE)).truncate;
+  end
+
+  # 休日出勤代を計算する
+  # @param [int] sum_holiday_work_time 合計休日出勤時間
+  # @return 休日残業代
+  def calc_holiday_work_time_pay(sum_holiday_work_time, basis_amount)
+    (sum_holiday_work_time * (basis_amount * HOLIDAY_WORK_RATE)).truncate;
   end
 
   # 雑給+福利を計算して取得する
