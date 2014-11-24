@@ -63,3 +63,6 @@ gem 'holiday_jp'
 
 # RESTFullなAPI開発をサポート
 gem 'garage', github: 'cookpad/garage'
+
+# Angularを導入
+gem "angular-gem", '~> 1.2.1'

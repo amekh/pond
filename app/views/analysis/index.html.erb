@@ -1,0 +1,66 @@
+<div ng-controller="recordCtrl">
+  
+  <p class="record-label">成績</p>
+
+  <div id="record">
+    <div id="record-header">
+      <div class="record-header-content">
+	<p class="record-header-value">{{ record.profit | currency }}</p>
+	<p class="record-header-label">売上げ</p>
+      </div>
+      <div class="record-header-content">
+	<p class="record-header-value">{{ record.total_cost | currency }}</p>
+	<p class="record-header-label">原価合計</p>
+      </div>
+      <div class="record-header-content">
+	<p class="record-header-value">{{ record.gross_profit | currency }}</p>
+	<p class="record-header-label">粗利益</p>
+      </div>
+      <div class="record-header-content">
+	<p class="record-header-value">{{ record.operation_income | currency }}</p>
+	<p class="record-header-label">営業利益</p>
+      </div>
+      <div class="record-header-content">
+	<p class="record-header-value">{{ record.rate_operation_income }}%</p>
+	<p class="record-header-label">営業利益率</p>
+      </div>
+    </div>
+    <div id="record-contents">
+      <p class="record-contents-value">給与: {{ record.salary | currency }}</p>
+      <p class="record-contents-value">手当: {{ record.allowance | currency }}</p>
+      <p class="record-contents-value">福利+雑給: {{ record.welfare | currency }}</p>
+      <p class="record-contents-value">交通費: {{ record.carfare | currency }}</p>
+      <p class="record-contents-value">諸経費: {{ record.outlay | currency }}</p>
+      <p class="record-contents-value">個人経費: {{ record.my_outlay | currency }}</p>
+      <p class="record-contents-value">算定基礎額: {{ record.basic_rate | currency }}</p>
+      <p class="record-contents-value">普通残業時間: {{ record.total_over_work_time }}h</p>
+      <p class="record-contents-value">深夜残業時間: {{ record.total_late_work_time }}h</p>
+      <p class="record-contents-value">休日残業時間: {{ record.total_holiday_work_time }}h</p>
+      <p class="record-contents-value">普通残業時価: {{ record.over_work_hour_price | currency }}</p>
+      <p class="record-contents-value">深夜残業時価: {{ record.late_work_hour_price | currency }}</p>
+      <p class="record-contents-value">休日残業時価: {{ record.holiday_work_hour_price | currency }}</p>
+      <p class="record-contents-value">普通残業合計金額: {{ record.total_over_work_price | currency }}</p>
+      <p class="record-contents-value">深夜残業合計金額: {{ record.total_late_work_price | currency }}</p>
+      <p class="record-contents-value">休日残業合計金額: {{ record.total_holiday_work_price | currency }}</p>
+      <p class="record-contents-value">全残業金額合計: {{ record.total_all_over_work_price | currency }}</p>
+      <p class="record-contents-value"></p>
+      <p class="record-contents-value"></p>
+      
+    </div>
+  </div>
+  
+  <p class="record-label">案件一覧</p>
+  
+  <div id="mission-group">
+    <div class="mission" ng-repeat="mission in record.mission" >
+      <div class="mission_title">{{ mission.title }}</div>
+      <div class="mission_detail">
+	<p>単価:{{ mission.unit_cost | currency }}</p>
+	<p>期間:{{ mission.start_date }} ~ {{ mission.end_date }}</p>
+	<p>作業時間:{{ mission.work_time }}</p>
+	<p>清算金額:{{ mission.over_work_price | currency }}</p>
+      </div>
+    </div>
+  </div>
+  
+</div>

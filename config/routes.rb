@@ -1,5 +1,7 @@
 Pond::Application.routes.draw do
   
+  resources :analysis, :only => :index
+  
   resources :daily_works
 
   resources :mission_types
@@ -15,7 +17,6 @@ Pond::Application.routes.draw do
   devise_for :users
 
   root:to => 'home#index'
-
 
   use_doorkeeper
 

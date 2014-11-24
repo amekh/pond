@@ -47,6 +47,7 @@ module AttendanceCalcService
     end
 
     return 0
+
   end
-  
+
 end

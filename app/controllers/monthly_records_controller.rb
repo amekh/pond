@@ -4,21 +4,16 @@ class MonthlyRecordsController < ApplicationController
 
   include Garage::RestfulActions
   include Garage::ControllerHelper
-  
-  before_action :set_monthly_record, only: [:show, :edit, :update, :destroy]
-
+    
   # GET /monthly_records.json
   def index
-
-    @monthly_record = Domain::MonthlyRecordDomain.new()
-    @monthly_record.find_all
-
-    render :json => @monthly_record.json_format
+    render :json => @resources.json_format
   end
 
   # GET /monthly_records/1
   # GET /monthly_records/1.json
   def show
+    render :json => @resource.json_format
   end
 
   # GET /monthly_records/new
@@ -71,20 +66,21 @@ class MonthlyRecordsController < ApplicationController
   end
 
   def require_resources
-    @resources = MonthlyRecord.all
+    @resources = MonthlyRecord.new()
+    @resources.find_joins_all
   end
 
-    # Garage用のフィルターメソッド
+  def require_resource
+    @resource = MonthlyRecord.new()
+    @resource.find_joins(params[:id])
+  end
+
+  # Garage用のフィルターメソッド
   def current_resource_owner
     @current_resource_owner ||= User.find(resource_owner_id) if resource_owner_id
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_monthly_record
-    @monthly_record = MonthlyRecord.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def monthly_record_params
