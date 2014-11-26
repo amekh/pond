@@ -1,5 +1,6 @@
 Pond::Application.routes.draw do
   
+  get "works/index"
   resources :analysis, :only => :index
 
   resources :mission_types
