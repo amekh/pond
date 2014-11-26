@@ -1,29 +1,24 @@
 # coding: utf-8
 class DailyWorksController < ApplicationController
-  before_action :set_daily_work, only: [:show, :edit, :update, :destroy]
 
-  # GET /daily_works
-  # GET /daily_works.json
+  include Garage::RestfulActions
+  include Garage::ControllerHelper
+  
   def index
-    @daily_works = DailyWork.all
+    render :json => @resources.json_format
   end
 
-  # GET /daily_works/1
-  # GET /daily_works/1.json
   def show
+    render :json => @resource.json_format
   end
 
-  # GET /daily_works/new
   def new
     @daily_work = DailyWork.new
   end
 
-  # GET /daily_works/1/edit
   def edit
   end
 
-  # POST /daily_works
-  # POST /daily_works.json
   def create
     @daily_work = DailyWork.new(daily_work_params)
 
@@ -38,8 +33,6 @@ class DailyWorksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /daily_works/1
-  # PATCH/PUT /daily_works/1.json
   def update
     respond_to do |format|
       if @daily_work.update(daily_work_params)
@@ -52,8 +45,6 @@ class DailyWorksController < ApplicationController
     end
   end
 
-  # DELETE /daily_works/1
-  # DELETE /daily_works/1.json
   def destroy
     @daily_work.destroy
     respond_to do |format|
@@ -62,27 +53,27 @@ class DailyWorksController < ApplicationController
     end
   end
 
+  def require_resources
+    @resources = DailyWork.new
+    @resources.find_joins_all
+  end
+
+  def require_resource
+    @resource = DailyWork.new
+    @resource.find_by_date_and_user
+  end
+
+  # Garage用のフィルターメソッド
+  def current_resource_owner
+    @current_resource_owner ||= User.find(resource_owner_id) if resource_owner_id
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_daily_work
-      @daily_work = DailyWork.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def daily_work_params
-      params.require(:daily_work).permit(:user_id, :monthly_record_id, :unit_mission_id, :start_time,
-                                         :end_time, :status, :contents, :memo, :target_date, :rest_time)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def daily_work_params
+    params.require(:daily_work).permit(:user_id, :monthly_record_id, :unit_mission_id, :start_time,
+                                       :end_time, :status, :contents, :memo, :target_date, :rest_time)
+  end
 
-    # 月間の作業合計時間
-    # @param [Time] date 集計したい月の日付
-    # @return [double] 月間作業時間(h)
-    def set_monthly_work ( date )
-
-      from = date.at_beginning_of_month
-      to = date.at_end_of_month
-
-      @monthly_work = DailyWork.where(:target_date => from..to)
-
-    end
 end

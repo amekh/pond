@@ -1,8 +1,6 @@
 Pond::Application.routes.draw do
   
   resources :analysis, :only => :index
-  
-  resources :daily_works
 
   resources :mission_types
 
@@ -22,6 +20,8 @@ Pond::Application.routes.draw do
 
   scope :v1 do
     resources :monthly_records, only: %i(index show update)
+
+    resources :daily_works, only: %i(index show update)
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

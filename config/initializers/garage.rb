@@ -4,6 +4,8 @@ Garage::TokenScope.configure do
   register :public, desc: 'acessing publicly available data' do
     access :read, MonthlyRecord
     access :write, MonthlyRecord
+    access :read, DailyWork
+    access :write, DailyWork
   end
 end
 

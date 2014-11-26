@@ -5,7 +5,7 @@ $ ->
     "$httpProvider"
     ($httpProvider) ->
       $httpProvider.defaults.headers.common["Authorization"] =
-      "Bearer 22ca7579197adeb9b90572f3410550d156413342575ece7647b30e7ba3c62af4"
+      "Bearer eb268f608f9c4422aea94cf0ce54d23bacceaf390b23276bf6d53ec30ac62228"
   ]
 
   pondApp.controller "recordCtrl", ($scope, $http) ->

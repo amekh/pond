@@ -20,18 +20,18 @@ class CompaniesController < ApplicationControllerCompaniesController1,0
     def set_companyset_company66,0
     def company_paramscompany_params71,0
 
-app/controllers/daily_works_controller.rb,384
+app/controllers/daily_works_controller.rb,382
 class DailyWorksController < ApplicationControllerDailyWorksController2,0
-  def indexindex7,0
+  def indexindex5,0
   def showshow13,0
   def newnew17,0
   def editedit22,0
   def createcreate27,0
   def updateupdate43,0
   def destroydestroy57,0
-    def set_daily_workset_daily_work67,0
-    def daily_work_paramsdaily_work_params72,0
-    def set_monthly_work ( date )set_monthly_work80,0
+  def set_daily_workset_daily_work66,0
+    def daily_work_paramsdaily_work_params73,0
+    def set_monthly_work ( date )set_monthly_work81,0
 
 app/controllers/home_controller.rb,86
 class HomeController < ApplicationControllerHomeController1,0
@@ -130,19 +130,24 @@ app/models/concerns/time_util.rb,62
 module TimeUtilTimeUtil3,0
   def to_time (time)to_time8,0
 
-app/models/daily_work.rb,577
+app/models/daily_work.rb,828
 class DailyWork < ActiveRecord::BaseDailyWork2,0
-  belongs_to :unit_missionunit_mission4,0
-  belongs_to :unit_missionunit_mission=4,0
-  belongs_to :unit_missionbuild_unit_mission4,0
-  belongs_to :unit_missioncreate_unit_mission4,0
-  belongs_to :unit_missioncreate_unit_mission!4,0
-  belongs_to :monthly_recordmonthly_record5,0
-  belongs_to :monthly_recordmonthly_record=5,0
-  belongs_to :monthly_recordbuild_monthly_record5,0
-  belongs_to :monthly_recordcreate_monthly_record5,0
-  belongs_to :monthly_recordcreate_monthly_record!5,0
-  def paid?paid?9,0
+  belongs_to :unit_missionunit_mission8,0
+  belongs_to :unit_missionunit_mission=8,0
+  belongs_to :unit_missionbuild_unit_mission8,0
+  belongs_to :unit_missioncreate_unit_mission8,0
+  belongs_to :unit_missioncreate_unit_mission!8,0
+  belongs_to :monthly_recordmonthly_record9,0
+  belongs_to :monthly_recordmonthly_record=9,0
+  belongs_to :monthly_recordbuild_monthly_record9,0
+  belongs_to :monthly_recordcreate_monthly_record9,0
+  belongs_to :monthly_recordcreate_monthly_record!9,0
+  def initializeinitialize11,0
+  def paid?paid?19,0
+  def findByDateAndUserfindByDateAndUser25,0
+  def self.build_permissions(perms, other, target)build_permissions36,0
+  def build_permissions(perms, other)build_permissions40,0
+  def json_formatjson_format45,0
 
 app/models/devision.rb,49
 class Devision < ActiveRecord::BaseDevision1,0
@@ -211,12 +216,12 @@ class MonthlyRecord < ActiveRecord::BaseMonthlyRecord2,0
   def self.build_permissions(perms, other, target)build_permissions108,0
   def build_permissions(perms, other)build_permissions112,0
   def setupsetup120,0
-  def calc_over_time_pay(sum_over_time, basis_amount)calc_over_time_pay189,0
-  def calc_late_time_pay(sum_late_time, basis_amount)calc_late_time_pay200,0
-  def calc_holiday_work_time_pay(sum_holiday_work_time, basis_amount)calc_holiday_work_time_pay207,0
-  def calc_welfare (allowance, salary)calc_welfare215,0
-  def calc_basis_amount (salary)calc_basis_amount223,0
-  def calc_unit_outlay (salary, allowance)calc_unit_outlay231,0
+  def calc_over_time_pay(sum_over_time, basis_amount)calc_over_time_pay181,0
+  def calc_late_time_pay(sum_late_time, basis_amount)calc_late_time_pay192,0
+  def calc_holiday_work_time_pay(sum_holiday_work_time, basis_amount)calc_holiday_work_time_pay199,0
+  def calc_welfare (allowance, salary)calc_welfare207,0
+  def calc_basis_amount (salary)calc_basis_amount215,0
+  def calc_unit_outlay (salary, allowance)calc_unit_outlay223,0
 
 app/models/section.rb,73
 class Section < ActiveRecord::BaseSection2,0

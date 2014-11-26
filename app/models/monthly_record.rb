@@ -39,7 +39,7 @@ class MonthlyRecord < ActiveRecord::Base
 
   # 全ての計算を行う
   def find_joins_all
-    @results = MonthlyRecord.joins(:daily_work => {:unit_mission => :mission}).select("*")
+    @results = MonthlyRecord.joins(:daily_work => {:unit_mission => :mission}).select("*").all
     setup
   end
 
@@ -123,16 +123,8 @@ class MonthlyRecord < ActiveRecord::Base
       return 0
     end
     
-    Rails.logger.debug "-----------------"
-    Rails.logger.debug @results.inspect
-    Rails.logger.debug "-----------------"
-
     i = 0
     @results.each do |record|
-
-      Rails.logger.debug "================="
-      Rails.logger.debug i
-      Rails.logger.debug "================="
 
       if i == 0
         @basis_amount = calc_basis_amount(record.salary);
