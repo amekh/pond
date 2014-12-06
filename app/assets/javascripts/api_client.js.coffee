@@ -38,4 +38,7 @@ class window.ApiClient
     _request()
     return
 
-  
+  requestByDateDailyWorks: (id) ->
+    _options.url = _getRequestUrl() + "daily_works/" + id;
+    _request();
+    return

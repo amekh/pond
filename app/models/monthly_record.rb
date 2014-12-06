@@ -136,8 +136,8 @@ class MonthlyRecord < ActiveRecord::Base
 
       i += 1
 
-      record.work_time = calc_work_time(record.start_time, record.end_time, 1)
-      record.over_time = extra_over_work_time(record.start_time, record.end_time, 1)
+      record.work_time = calc_work_time(record.start_time, record.end_time, record.rest_time)
+      record.over_time = extra_over_work_time(record.start_time, record.end_time, record.rest_time)
       record.late_time = extra_late_over_work_time(record.target_date, record.start_time, record.end_time)
       record.holiday_work_time = 0
 

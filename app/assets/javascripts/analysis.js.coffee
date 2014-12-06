@@ -1,14 +1,14 @@
-$ ->
+
   pondApp = angular.module('pondApp', [])
 
   pondApp.config [
     "$httpProvider"
     ($httpProvider) ->
       $httpProvider.defaults.headers.common["Authorization"] =
-      "Bearer eb268f608f9c4422aea94cf0ce54d23bacceaf390b23276bf6d53ec30ac62228"
+      "Bearer 6e0b819ca9e4f71dc81c301af37102231149d802226c7439629aaa080cd8c9cd"
   ]
 
-  pondApp.controller "recordCtrl", ($scope, $http) ->
+  .controller "recordCtrl", ($scope, $http) ->
     $scope.record = [0,0];
     monthlyRecordApiClient = new ApiClient
       url:"monthly_records/4"
@@ -33,4 +33,4 @@ $ ->
         "¥" + input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   ]
   
-  return
+

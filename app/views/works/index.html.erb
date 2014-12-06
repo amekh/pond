@@ -1,2 +1,37 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<div ng-controller="worksCtrl">
+
+  <h2 id="target-date">{{ works.date }}</h2>
+
+  <div id="works" ng-repeat="(date, contents) in works.works">
+    
+    <div class="monthly-works">
+      <div class="date-label"><i class="icon fi-social-joomla"></i>{{ date }}</div>
+      
+      <lo class="work-group">
+        <li class="work" ng-repeat="content in contents.contents">
+	  <div class="content-cell-left">
+
+	    <div class="content-title">
+	      <span>{{ content.mission_title }}:</span>
+	      <span>{{ content.work_title }}</span>
+	      <span class="detail-btn-wrapper" ng-click="toggleContentDetail($index)">
+		<a href="" class="detail-btn">…</a>
+	      </span>
+	    </div>
+	    
+	    <div class="work-times">
+	      <ul>
+		<li>作業時間: {{ content.work_time }}h</li>
+	      </ul>
+	    </div>
+	  </div>
+
+	  <div class="content-detail" id="content-detail{{ $index }}">
+	    {{ content.work_contents }}
+	  </div>
+	  
+	</li>
+      </lo>
+    </div>
+  </div>
+</div>
