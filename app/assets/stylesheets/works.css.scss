@@ -9,7 +9,15 @@ h2#target-date {
 
   .date-label {
     color:#777;
-    margin:10px 0;
+    margin:5px 0;
+  }
+
+  .work-status {
+    color:#777;
+    margin-bottom:10px;
+    span {
+      margin-right:5px;
+    }
   }
 
   lo.work-group {
@@ -100,4 +108,8 @@ h2#target-date {
 .icon {
   color:#bbb;
   margin:0 5px 0 0;
+}
+
+.icon-size18 {
+  font-size:18px;
 }

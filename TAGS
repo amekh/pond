@@ -233,3 +233,150 @@ class MonthlyRecord < ActiveRecord::BaseMonthlyRecord2,0
   def calc_welfare (allowance, salary)calc_welfare207,0
   def calc_basis_amount (salary)calc_basis_amount215,0
   def calc_unit_outlay (salary, allowance)calc_unit_outlay223,0
+
+app/models/section.rb,73
+class Section < ActiveRecord::BaseSection2,0
+  def getNamegetName7,0
+
+app/models/unit_mission.rb,324
+class UnitMission < ActiveRecord::BaseUnitMission1,0
+  belongs_to :missionmission3,0
+  belongs_to :missionmission=3,0
+  belongs_to :missionbuild_mission3,0
+  belongs_to :missioncreate_mission3,0
+  belongs_to :missioncreate_mission!3,0
+  has_many :daily_workdaily_work4,0
+  has_many :daily_workdaily_work=4,0
+
+app/models/user.rb,41
+class User < ActiveRecord::BaseUser1,0
+
+app/models/work.rb,505
+class Work < ActiveRecord::BaseWork1,0
+  belongs_to :daily_workdaily_work3,0
+  belongs_to :daily_workdaily_work=3,0
+  belongs_to :daily_workbuild_daily_work3,0
+  belongs_to :daily_workcreate_daily_work3,0
+  belongs_to :daily_workcreate_daily_work!3,0
+  belongs_to :unit_missionunit_mission4,0
+  belongs_to :unit_missionunit_mission=4,0
+  belongs_to :unit_missionbuild_unit_mission4,0
+  belongs_to :unit_missioncreate_unit_mission4,0
+  belongs_to :unit_missioncreate_unit_mission!4,0
+
+config/application.rb,79
+module PondPond9,0
+  class Application < Rails::ApplicationApplication10,0
+
+config/initializers/constants.rb,762
+BASE_RATE_TIME = 1.0BASE_RATE_TIME4,0
+BASE_WORK_TIME = 8.0BASE_WORK_TIME7,0
+BASE_OVER_WORK_TIME = 30.0BASE_OVER_WORK_TIME10,0
+BEGIN_LATE_WORK_TIME = 22.0BEGIN_LATE_WORK_TIME13,0
+END_LATE_WORK_TIME = 29.0END_LATE_WORK_TIME16,0
+MISCELLANY_SALARY_RATE = 0.165MISCELLANY_SALARY_RATE19,0
+BURDEN_UNIT_OUTLAY_RATE = 0.620BURDEN_UNIT_OUTLAY_RATE22,0
+CALC_BASIS_AMOUNT_RATE = 197.4CALC_BASIS_AMOUNT_RATE25,0
+OVER_WORK_RATE = 1.25OVER_WORK_RATE28,0
+LATE_WORK_RATE = 0.25LATE_WORK_RATE31,0
+HOLIDAY_WORK_RATE = 1.35HOLIDAY_WORK_RATE34,0
+module WorkStatusWorkStatus37,0
+  ATTENDANCE = 1ATTENDANCE39,0
+  PAID_VACATION = 2PAID_VACATION41,0
+  SUMMER_VACATION = 3SUMMER_VACATION43,0
+  DAY_OFF = 4DAY_OFF45,0
+  STEAD_DAY_OFF = 5STEAD_DAY_OFF47,0
+
+db/migrate/20141002055605_create_sections.rb,90
+class CreateSections < ActiveRecord::MigrationCreateSections1,0
+  def changechange2,0
+
+db/migrate/20141003004949_create_users.rb,84
+class CreateUsers < ActiveRecord::MigrationCreateUsers1,0
+  def changechange2,0
+
+db/migrate/20141003010245_create_devisions.rb,92
+class CreateDevisions < ActiveRecord::MigrationCreateDevisions1,0
+  def changechange2,0
+
+db/migrate/20141003030448_add_devise_to_users.rb,117
+class AddDeviseToUsers < ActiveRecord::MigrationAddDeviseToUsers1,0
+  def self.upup2,0
+  def self.downdown44,0
+
+db/migrate/20141021143100_create_monthly_recodes.rb,102
+class CreateMonthlyRecodes < ActiveRecord::MigrationCreateMonthlyRecodes1,0
+  def changechange2,0
+
+db/migrate/20141024102037_create_unit_missions.rb,98
+class CreateUnitMissions < ActiveRecord::MigrationCreateUnitMissions1,0
+  def changechange2,0
+
+db/migrate/20141024103155_create_missions.rb,90
+class CreateMissions < ActiveRecord::MigrationCreateMissions1,0
+  def changechange2,0
+
+db/migrate/20141024103937_create_companies.rb,92
+class CreateCompanies < ActiveRecord::MigrationCreateCompanies1,0
+  def changechange2,0
+
+db/migrate/20141024104116_create_mission_types.rb,98
+class CreateMissionTypes < ActiveRecord::MigrationCreateMissionTypes1,0
+  def changechange2,0
+
+db/migrate/20141025151938_create_daily_works.rb,94
+class CreateDailyWorks < ActiveRecord::MigrationCreateDailyWorks1,0
+  def changechange2,0
+
+db/migrate/20141101020716_change_type_start_time_and_end_time_to_daily_works.rb,144
+class ChangeTypeStartTimeAndEndTimeToDailyWorks < ActiveRecord::MigrationChangeTypeStartTimeAndEndTimeToDailyWorks1,0
+  def changechange2,0
+
+db/migrate/20141103105859_add_month_monthly_recodes.rb,106
+class AddMonthMonthlyRecodes < ActiveRecord::MigrationAddMonthMonthlyRecodes1,0
+  def changechange2,0
+
+db/migrate/20141103110910_change_month_monthly_recodes.rb,112
+class ChangeMonthMonthlyRecodes < ActiveRecord::MigrationChangeMonthMonthlyRecodes1,0
+  def changechange2,0
+
+db/migrate/20141103122758_add_monthly_record_id_daily_works.rb,118
+class AddMonthlyRecordIdDailyWorks < ActiveRecord::MigrationAddMonthlyRecordIdDailyWorks1,0
+  def changechange2,0
+
+db/migrate/20141103124215_rename_table_monthly_recode_to_monthly_record.rb,140
+class RenameTableMonthlyRecodeToMonthlyRecord < ActiveRecord::MigrationRenameTableMonthlyRecodeToMonthlyRecord1,0
+  def changechange2,0
+
+db/migrate/20141103141144_change_type_rest_time_in_daily_works.rb,122
+class ChangeTypeRestTimeInDailyWorks < ActiveRecord::MigrationChangeTypeRestTimeInDailyWorks1,0
+  def changechange2,0
+
+db/migrate/20141105101348_change_type_start_time_and_end_time_in_daily_works.rb,144
+class ChangeTypeStartTimeAndEndTimeInDailyWorks < ActiveRecord::MigrationChangeTypeStartTimeAndEndTimeInDailyWorks1,0
+  def changechange2,0
+
+db/migrate/20141121153224_add_allowance_to_monthly_record.rb,116
+class AddAllowanceToMonthlyRecord < ActiveRecord::MigrationAddAllowanceToMonthlyRecord1,0
+  def changechange2,0
+
+db/migrate/20141121154719_rename_to_outlay_from_welfare_in_monthly_record.rb,142
+class RenameToOutlayFromWelfareInMonthlyRecord < ActiveRecord::MigrationRenameToOutlayFromWelfareInMonthlyRecord1,0
+  def changechange2,0
+
+db/migrate/20141122033523_create_doorkeeper_tables.rb,106
+class CreateDoorkeeperTables < ActiveRecord::MigrationCreateDoorkeeperTables1,0
+  def changechange2,0
+
+db/migrate/20141206121453_work.rb,70
+class Work < ActiveRecord::MigrationWork1,0
+  def changechange2,0
+
+spec/spec_helper.rb,64
+def describe_internally(*args, &block)describe_internally26,0
+
+test/controllers/home_controller_test.rb,77
+class HomeControllerTest < ActionController::TestCaseHomeControllerTest3,0
+
+test/helpers/home_helper_test.rb,63
+class HomeHelperTest < ActionView::TestCaseHomeHelperTest3,0

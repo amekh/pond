@@ -5,7 +5,7 @@ pondApp.config [
   "$httpProvider"
   ($httpProvider) ->
     $httpProvider.defaults.headers.common["Authorization"] =
-    "Bearer 6e0b819ca9e4f71dc81c301af37102231149d802226c7439629aaa080cd8c9cd"
+    "Bearer 44345589372a511112a4c89ce8e24f91961506346d7aaec466a033779a3d7c63"
 ]
 
 pondApp.controller "worksCtrl", ($scope, $http) ->

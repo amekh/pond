@@ -5,7 +5,25 @@
   <div id="works" ng-repeat="(date, contents) in works.works">
     
     <div class="monthly-works">
-      <div class="date-label"><i class="icon fi-social-joomla"></i>{{ date }}</div>
+      <div class="date-label">
+	<i class="icon fi-social-joomla"></i>
+	<span class="root-date">{{ date }}</span>
+      </div>
+
+      <div class="work-status">
+	<span class="work-status">
+	  <i class="fi-bookmark icon-size18"></i>
+	  {{contents.status.status}}
+	</span>
+	<span class="total-work-time">
+	  <i class="fi-torso-business icon-size18"></i>
+	  {{contents.status.work_time}}h
+	</span>
+	<span class="duty-time">
+	  <i class="fi-clock icon-size18"></i>
+	  {{contents.status.start_time}} ~ {{contents.status.end_time}}
+	</span>
+      </div>
       
       <lo class="work-group">
         <li class="work" ng-repeat="content in contents.contents">
