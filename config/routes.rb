@@ -1,6 +1,9 @@
 Pond::Application.routes.draw do
   
   get "works/index"
+  get "works/new"
+  get "works/edit"
+  
   resources :analysis, :only => :index
 
   resources :mission_types

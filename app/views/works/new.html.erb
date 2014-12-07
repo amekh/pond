@@ -1,0 +1,88 @@
+<div ng-controller="workAddCtrl">
+  <form id="work-of-day" action="">
+    <div class="form-row">
+      <div class="form-cell">
+	<label>勤務状況:</label>
+	<select id="" name="">
+	  <option value="1">出勤</option>
+	  <option value="2">出勤＋有休</option>
+	  <option value="4">欠勤</option>
+	  <option value="1001">有給休暇</option>
+	  <option value="1002">振替休暇</option>
+	  <option value="1003">代休</option>
+	  <option value="1004">慶弔休暇</option>
+	  <option value="1005">夏季休暇</option>
+	  <option value="1006">特別休暇</option>
+	  <option value="1007">その他休暇</option>
+	</select>
+      </div>
+      <div class="form-cell">
+	<a class="default-btn">
+	  <i class="fi-download"></i>
+	  定時
+	</a>
+      </div>
+    </div>
+    <div class="form-row">
+      <label>勤務時間</label>
+      <select id="" name="">
+	<option value="">00</option>
+      </select>
+      :
+      <select id="" name="">
+	<option value="">00</option>
+      </select>
+      ~
+      <select id="" name="">
+	<option value="">00</option>
+      </select>
+      :
+      <select id="" name="">
+	<option value="">00</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>休憩時間</label>
+      <select id="" name="">
+	<option value="">1.0</option>
+      </select> h
+    </div>
+
+    <div class="form-row separate">
+      <div class="form-cell">
+	作業
+      </div>
+      <div class="form-cell">
+	<a class="add-work add-btn">
+	  <i class="fi-plus"></i>追加
+	</a>
+      </div>
+    </div>
+
+    <div class="work-form">
+      <div class="work-title">
+	<div class="work-cell">
+	  <input id="work-title-input" name="work-title" size="60" type="text" value=""/>
+	</div>
+	<div class="work-cell work-time">
+	  作業時間:
+	  <select id="work-time-select" name="work-time">
+	    <option value="1.0">1.0</option>
+	  </select> h
+	</div>
+      </div>
+      <div class="work-contents">
+	<textarea id="work-contents-textarea" name="work-contents" cols="100" rows="10"></textarea>
+      </div>
+      <div class="footer">
+	<a class="cancel-work-btn delete-btn">キャンセル</a>
+	<a class="add-work-btn success-btn">登録</a>
+      </div>
+    </div>
+
+    <lo id="work-group">
+    </lo>
+    
+  </form>
+</div>

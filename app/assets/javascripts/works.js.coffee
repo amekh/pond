@@ -1,11 +1,11 @@
 
-pondApp = angular.module('pondApp', [])
+pondApp = angular.module('pondApp')
 
 pondApp.config [
   "$httpProvider"
   ($httpProvider) ->
     $httpProvider.defaults.headers.common["Authorization"] =
-    "Bearer 44345589372a511112a4c89ce8e24f91961506346d7aaec466a033779a3d7c63"
+    "Bearer a476d9ceb1f7e2cdfb28be355367908b2ea1ea6326a9c5faf347599b0e73a055"
 ]
 
 pondApp.controller "worksCtrl", ($scope, $http) ->

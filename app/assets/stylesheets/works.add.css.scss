@@ -1,0 +1,51 @@
+form#work-of-day {
+  min-width:500px;
+  
+  .form-row {
+    margin:20px 0;
+    overflow:auto;
+    clear:both;
+    
+    .form-cell {
+      float:left;
+      margin-right:10px;
+    }
+  }
+
+  .separate {
+    border-bottom:1px solid #aaa;
+    padding-bottom:10px;
+  }
+
+  .work-form {
+    display:none;
+    
+    .work-title {
+      margin-bottom:20px;
+      overflow:auto;
+
+      input {
+	height:30px;
+	padding-left:5px;
+      }
+
+      .work-time {
+	line-height:30px;
+      }
+    }
+
+    .work-cell {
+      margin-right:10px;
+      float:left;
+    }
+  }
+
+  .footer {
+    text-align:right;
+    margin-top:15px;
+
+    a {
+      margin-left:5px;
+    }
+  }
+}

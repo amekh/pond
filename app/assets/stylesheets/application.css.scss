@@ -72,3 +72,125 @@ div#container {
     
   }
 }
+
+/**
+ * UI系のスタイル定義
+ */
+
+a.default-btn {
+  background-color:#aaa;
+  border-radius:3px;
+  -webkit-border-radius:3px;
+  color:white;
+  line-height:24px;
+  position: relative;
+  display: inline-block;
+  padding:0px 10px;
+  cursor:pointer;
+
+  i {
+    -webkit-animation: out_spin 0.5s;
+    -moz-animation: out_spin 0.5s;
+    -ms-animation: out_spin 0.5s;
+    -o-animation: out_spin 0.5s;
+    animation: out_spin 0.5s;
+  }
+
+
+  &:hover {
+    background-color:#bbb;
+
+    i {
+      -webkit-animation: in_spin 0.5s;
+      -moz-animation: in_spin 0.5s;
+      -ms-animation: in_spin 0.5s;
+      -o-animation: in_spin 0.5s;
+      animation: in_spin 0.5s;
+    }
+  }
+}
+
+
+a.add-btn {
+  @extend .default-btn;
+  background-color:#F8823C;
+
+  &:hover {
+    background-color:#FF995C;
+  }
+}
+
+a.delete-btn {
+  @extend .default-btn;
+  background-color:#DE352F;
+
+  &:hover {
+    background-color:#E05245;
+  }
+}
+
+a.success-btn {
+  @extend .default-btn;
+  background-color:#2EB268;
+
+  &:hover {
+    background-color:#2EC668;
+  }
+}
+
+
+/**
+ * CSS3 ANIMATION
+ */
+
+
+/** in_spin */
+@-webkit-keyframes in_spin {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(90deg);}
+}
+
+@-moz-keyframes in_spin {
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(90deg);}
+}
+
+@-ms-keyframes in_spin {
+  from {-ms-transform: rotate(0deg);}
+  to {-ms-transform: rotate(90deg);}
+}
+
+@-o-keyframes in_spin {
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(90deg);}
+}
+
+@keyframes in_spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(90deg);}
+}
+/** out_spin */
+@-webkit-keyframes out_spin {
+  from {-webkit-transform: rotate(90deg);}
+  to {-webkit-transform: rotate(0deg);}
+}
+
+@-moz-keyframes out_spin {
+  from {-moz-transform: rotate(90deg);}
+  to {-moz-transform: rotate(0deg);}
+}
+
+@-ms-keyframes out_spin {
+  from {-ms-transform: rotate(90deg);}
+  to {-ms-transform: rotate(0deg);}
+}
+
+@-o-keyframes out_spin {
+  from {-o-transform: rotate(90deg);}
+  to {-o-transform: rotate(0deg);}
+}
+
+@keyframes out_spin {
+  from {transform: rotate(90deg);}
+  to {transform: rotate(0deg);}
+}

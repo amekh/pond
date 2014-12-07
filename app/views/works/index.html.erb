@@ -2,6 +2,13 @@
 
   <h2 id="target-date">{{ works.date }}</h2>
 
+  <div id="work-operations">
+    <a id="add-work" class="add-btn">
+      <i class="fi-plus"></i>
+      追加
+    </a>
+  </div>
+
   <div id="works" ng-repeat="(date, contents) in works.works">
     
     <div class="monthly-works">
