@@ -77,11 +77,28 @@
       </div>
       <div class="footer">
 	<a class="cancel-work-btn delete-btn">キャンセル</a>
-	<a class="add-work-btn success-btn">登録</a>
+	<a class="add-work-btn success-btn" ng-click="addWork()">登録</a>
       </div>
     </div>
 
     <lo id="work-group">
+      <li class="work" ng-repeat="work in works">
+	<div class="content-cell-left">
+	  <div class="content-title">
+	    <span>{{work.title}}</span>
+	    <span>{{work.title}}</span>
+	    <span class="detail-btn-wrapper" ng-click="toggleContentDetail($index)">
+	      <a href="" class="detail-btn">…</a>
+	    </span>
+	  </div>
+	  <div class="work-times">
+	    <ul>
+	      <li>作業時間: {{work.time}}h</li>
+	    </ul>
+	  </div>
+	</div> 
+	<div class="content-detail" id="content-detail{{ $index }}">{{work.contents}}</div>
+      </li>
     </lo>
     
   </form>
