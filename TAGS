@@ -88,9 +88,11 @@ class UnitMissionsController < ApplicationControllerUnitMissionsController1,0
     def set_unit_missionset_unit_mission66,0
     def unit_mission_paramsunit_mission_params71,0
 
-app/controllers/works_controller.rb,88
+app/controllers/works_controller.rb,126
 class WorksController < ApplicationControllerWorksController1,0
   def indexindex2,0
+  def newnew5,0
+  def editedit8,0
 
 app/helpers/analysis_helper.rb,41
 module AnalysisHelperAnalysisHelper1,0

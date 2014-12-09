@@ -1,4 +1,4 @@
-<div ng-controller="workAddCtrl">
+<div ng-controller="workAddCtrl as workAddCtrl">
   <form id="work-of-day" action="">
     <div class="form-row">
       <div class="form-cell">
@@ -77,17 +77,17 @@
       </div>
       <div class="footer">
 	<a class="cancel-work-btn delete-btn">キャンセル</a>
-	<a class="add-work-btn success-btn" ng-click="addWork()">登録</a>
+	<a class="add-work-btn success-btn" ng-click="workAddCtrl.addWork()">登録</a>
       </div>
     </div>
 
     <lo id="work-group">
-      <li class="work" ng-repeat="work in works">
+      <li class="work" ng-repeat="work in workAddCtrl.works">
 	<div class="content-cell-left">
 	  <div class="content-title">
 	    <span>{{work.title}}</span>
 	    <span>{{work.title}}</span>
-	    <span class="detail-btn-wrapper" ng-click="toggleContentDetail($index)">
+	    <span class="detail-btn-wrapper" ng-click="workAddCtrl.toggleContentDetail($index)">
 	      <a href="" class="detail-btn">…</a>
 	    </span>
 	  </div>

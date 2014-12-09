@@ -3,16 +3,21 @@ pondApp = angular.module('pondApp')
 
 pondApp.controller "workAddCtrl", ($scope, $http) ->
 
-  $scope.works = [];
+  this.works = [];
 
-  $scope.addWork = () ->
+  this.toggleContentDetail = (index) ->
+    $("#content-detail" + index).toggle()
+    return
+
+
+  this.addWork = () ->
     work = {
       title: $("#work-title-input").val(),
       time: $("#work-time-select").val(),
       contents: $("#work-contents-textarea").val(),
     }
 
-    $scope.works.push(work);
+    this.works.push(work);
 
     $(".work-form").fadeOut()
     resetAddWorkForm()
