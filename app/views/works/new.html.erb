@@ -51,17 +51,20 @@
 
     <div class="form-row separate">
       <div class="form-cell">
-	作業
-      </div>
-      <div class="form-cell">
 	<a class="add-work add-btn">
-	  <i class="fi-plus"></i>追加
+	  <i class="fi-plus"></i>
+	  作業を追加する
 	</a>
       </div>
     </div>
 
     <div class="work-form">
       <div class="work-title">
+	<div class="work-cell">
+	  <select id="mission" name="mission">
+	    <option value=""></option>
+	  </select>
+	</div>
 	<div class="work-cell">
 	  <input id="work-title-input" name="work-title" size="60" type="text" value=""/>
 	</div>
@@ -82,7 +85,7 @@
     </div>
 
     <lo id="work-group">
-      <li class="work" ng-repeat="work in workAddCtrl.works">
+      <li class="work" ng-repeat="work in workAddCtrl.works.getWorks()">
 	<div class="content-cell-left">
 	  <div class="content-title">
 	    <span>{{work.title}}</span>

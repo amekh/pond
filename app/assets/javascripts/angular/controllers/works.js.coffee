@@ -1,29 +1,19 @@
+app = angular.module('pondApp')
 
-pondApp = angular.module('pondApp')
-
-pondApp.factory('Works', () ->
-
-  works = []
-
-  return {
-
-    add: (work) ->
-      works.push(work);
-      return
-
-    getWorks: () ->
-      works
-  }
-)
-
-pondApp.controller "workAddCtrl", ($scope, $http, Works) ->
-
-  this.works = Works;
-
+app.controller("worksCtrl", ["DailyWork", (DailyWork) ->
+  this.record = [0,0];
   this.toggleContentDetail = (index) ->
     $("#content-detail" + index).toggle()
     return
 
+  this.works = DailyWork.get({},{'id': 1})
+  return])
+
+app.controller("workAddCtrl", ($http, Works) ->
+  this.works = Works;
+  this.toggleContentDetail = (index) ->
+    $("#content-detail" + index).toggle()
+    return
 
   this.addWork = () ->
     work = {
@@ -38,10 +28,9 @@ pondApp.controller "workAddCtrl", ($scope, $http, Works) ->
     resetAddWorkForm()
     return
   
-  return
+  return)
 
 $ ->
-  
   $(".add-work").on("click", (e)->
     $(".work-form").fadeIn()
     return)
@@ -56,6 +45,4 @@ resetAddWorkForm = ()->
   $("#work-time-select").val("1.0")
   $("#work-contents-textarea").val("")
   return
-
-
 

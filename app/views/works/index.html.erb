@@ -1,4 +1,4 @@
-<div ng-controller="worksCtrl">
+<div ng-controller="worksCtrl as worksCtrl">
 
   <h2 id="target-date">{{ works.date }}</h2>
 
@@ -9,7 +9,7 @@
     </a>
   </div>
 
-  <div id="works" ng-repeat="(date, contents) in works.works">
+  <div id="works" ng-repeat="(date, contents) in worksCtrl.works.works">
     
     <div class="monthly-works">
       <div class="date-label">
@@ -39,7 +39,7 @@
 	    <div class="content-title">
 	      <span>{{ content.mission_title }}:</span>
 	      <span>{{ content.work_title }}</span>
-	      <span class="detail-btn-wrapper" ng-click="toggleContentDetail($index)">
+	      <span class="detail-btn-wrapper" ng-click="worksCtrl.toggleContentDetail($index)">
 		<a href="" class="detail-btn">…</a>
 	      </span>
 	    </div>
